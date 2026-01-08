@@ -7,8 +7,7 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
 import AppTutorial from '@/components/AppTutorial';
 import HealthNewsPopup from '@/components/HealthNewsPopup';
-import { medicines } from '@/data/medicines';
-import { governmentSchemes } from '@/data/schemes';
+import GeminiHealthTip from '@/components/GeminiHealthTip';
 import {
   Heart,
   Activity,
@@ -38,6 +37,10 @@ import {
   Sparkles,
 } from 'lucide-react';
 
+// Import data files
+import { medicines } from '@/data/medicines';
+import { governmentSchemes } from '@/data/schemes';
+
 const Index: React.FC = () => {
   const { t, language } = useLanguage();
   const navigate = useNavigate();
@@ -48,6 +51,8 @@ const Index: React.FC = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
+
+
 
   const allSearchableItems = [
     ...medicines.map(m => language === 'hi' ? m.nameHi : m.name),
@@ -310,6 +315,37 @@ const Index: React.FC = () => {
         </div>
       </section>
 
+      {/* Features/Our Services Section */}
+      <section className="container mx-auto px-4 py-12">
+        <h2 className="text-2xl font-semibold text-center mb-8">
+          {language === 'hi' ? '🌟 हमारी सेवाएं' : '🌟 Our Services'}
+        </h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {features.map((feature) => (
+            <Link key={feature.path} to={feature.path}>
+              <Card className="border-2 hover:shadow-xl transition-all hover:-translate-y-1 h-full overflow-hidden">
+                <CardContent className="p-0">
+                  <div className={`${feature.color} p-6 text-center`}>
+                    <feature.iconComponent className={`w-12 h-12 mx-auto ${feature.iconColor}`} />
+                  </div>
+                  <div className="p-4 text-center">
+                    <h3 className="font-medium mb-1">{language === 'hi' ? feature.labelHi : feature.label}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {language === 'hi' ? feature.descHi : feature.descEn}
+                    </p>
+                    <div className="mt-4 flex items-center justify-center text-primary gap-1">
+                      {language === 'hi' ? 'खोलें' : 'Open'}
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Search Section */}
       <section className="container mx-auto px-4 -mt-8 relative z-20 reveal">
         <Card className="border-2 border-border shadow-xl overflow-hidden">
@@ -371,82 +407,22 @@ const Index: React.FC = () => {
                   ))}
                 </div>
               </div>
-              
-              <div className="bg-primary/5 rounded-2xl p-4 md:p-6 border border-primary/10 flex flex-row lg:flex-col items-center justify-between lg:justify-center text-center lg:min-w-[240px] gap-4">
-                <div className="flex items-center lg:flex-col gap-3 lg:gap-0">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center lg:mb-3">
-                    <FileText className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-                  </div>
-                  <p className="text-xs md:text-sm font-medium text-muted-foreground lg:mb-2">
-                    {language === 'hi' ? 'पर्चे के साथ ऑर्डर करें' : 'Order with prescription'}
-                  </p>
-                </div>
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleFileUpload}
-                  className="hidden"
-                  accept="image/*,.pdf"
-                />
-                <button 
-                  onClick={() => fileInputRef.current?.click()}
-                  className="text-primary text-xs md:text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all whitespace-nowrap"
-                >
-                  {language === 'hi' ? 'अभी अपलोड करें' : 'UPLOAD NOW'}
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
             </div>
           </CardContent>
         </Card>
       </section>
 
-      {/* Features Horizontal Scroll */}
-      <section className="container mx-auto px-4 py-12 reveal">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-foreground">
-            {language === 'hi' ? '🌟 हमारी सेवाएं' : '🌟 Our Services'}
-          </h2>
-        </div>
-        
-        <div className="overflow-hidden -mx-4 px-4 md:mx-0 md:px-0 pt-6">
-          <div className="animate-marquee flex gap-6">
-            {[...features, ...features].map((feature, index) => (
-              <Link key={index} to={feature.path} className="flex-shrink-0 w-[140px] group">
-                <div className="flex flex-col items-center text-center">
-                  <div className={`${feature.color} w-24 h-24 rounded-3xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 shadow-sm`}>
-                    <feature.iconComponent className={`w-10 h-10 ${feature.iconColor}`} />
-                  </div>
-                  <h3 className="font-bold text-foreground text-sm mb-1 line-clamp-1">{feature.label}</h3>
-                  <p className={`text-[10px] font-bold uppercase tracking-wider ${feature.iconColor}`}>
-                    {language === 'hi' ? feature.descHi : feature.descEn}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
+      {/* Daily Health Tip */}
+      <section className="container mx-auto px-4 py-8">
+        <h2 className="text-2xl font-semibold text-center mb-6">
+          {language === 'hi' ? '🌟 आज का स्वास्थ्य सुझाव' : '🌟 Today\'s Health Tip'}
+        </h2>
+        <div className="max-w-2xl mx-auto">
+          <GeminiHealthTip />
         </div>
       </section>
 
-      {/* Quick Tips Banner */}
-      <section className="container mx-auto px-4 pb-12 reveal">
-        <Card className="border-2 border-border bg-gradient-to-r from-secondary to-muted overflow-hidden">
-          <CardContent className="p-6 flex items-center gap-4">
-            <Lightbulb className="w-14 h-14 text-foreground" />
-            <div className="flex-1">
-              <h3 className="font-bold text-foreground mb-1">
-                {language === 'hi' ? 'आज का स्वास्थ्य सुझाव' : 'Today\'s Health Tip'}
-              </h3>
-              <p className="text-muted-foreground">
-                {language === 'hi'
-                  ? 'दिन में कम से कम 8 गिलास पानी पिएं। यह शरीर को स्वस्थ रखता है।'
-                  : 'Drink at least 8 glasses of water daily. It keeps your body healthy.'}
-              </p>
-            </div>
-            <Droplets className="w-12 h-12 hidden md:block text-foreground" />
-          </CardContent>
-        </Card>
-      </section>
+
 
       {/* Emergency Banner */}
       <section className="container mx-auto px-4 pb-12 reveal">
