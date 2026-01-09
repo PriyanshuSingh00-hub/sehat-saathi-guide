@@ -17,6 +17,8 @@ import SymptomTracker from '@/components/SymptomTracker';
 import HealthTips from '@/components/HealthTips';
 import MedicineStore from '@/components/MedicineStore';
 import AIAssistant from '@/components/AIAssistant';
+import MedicalHistoryPage from '@/pages/MedicalHistory';
+
 import SarkariYojana from '@/components/SarkariYojana';
 import NearbyHospitals from '@/components/NearbyHospitals';
 import Cart from '@/components/Cart';
@@ -120,6 +122,8 @@ const App = () => {
                       <Route path="/symptoms" element={<SymptomTracker />} />
                       <Route path="/tips" element={<HealthTips />} />
                       <Route path="/store" element={<MedicineStore />} />
+                      <Route path="/medical-history" element={<MedicalHistoryPage />} />
+                  
                       <Route path="/assistant" element={<AIAssistant />} />
                       <Route path="/schemes" element={<SarkariYojana />} />
                       <Route path="/nearby" element={<NearbyHospitals />} />
