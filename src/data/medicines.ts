@@ -105,6 +105,7 @@ export const medicines: Medicine[] = [
     category: 'essentials',
     rating: 4.5,
     inStock: true,
+  },
   
 
   {
