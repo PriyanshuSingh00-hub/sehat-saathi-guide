@@ -100,14 +100,23 @@ Sehat Saathi is built to be inclusive. We currently support the following langua
 
  🛠️ TECH STACK
 
-- **Frontend**: [React 18](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **State Management**: [TanStack Query](https://tanstack.com/query/latest)
-- **Routing**: [React Router DOM](https://reactrouter.com/)
-- **Package Manager**: [Bun](https://bun.sh/) (Recommended) or [npm](https://www.npmjs.com/)
+| Technology | Usage | Badge |
+|------------|-------|-------|
+| React | Frontend Framework | ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) |
+| TypeScript | Programming Language | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) |
+| Vite | Build Tool | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white) |
+| Tailwind CSS | Styling Framework | ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=flat&logo=tailwind-css&logoColor=white) |
+| Shadcn/ui | UI Components | ![Shadcn/ui](https://img.shields.io/badge/Shadcn/ui-000000?style=flat&logo=react&logoColor=white) |
+| Lucide React | Icons | ![Lucide](https://img.shields.io/badge/Lucide-000000?style=flat&logo=lucide&logoColor=white) |
+| TanStack Query | State Management | ![TanStack Query](https://img.shields.io/badge/TanStack_Query-FF4154?style=flat&logo=react-query&logoColor=white) |
+| React Router | Routing | ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat&logo=react-router&logoColor=white) |
+| Leaflet | Maps | ![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=flat&logo=leaflet&logoColor=white) |
+| Recharts | Data Visualization | ![Recharts](https://img.shields.io/badge/Recharts-000000?style=flat&logo=recharts&logoColor=white) |
+| Node.js | Backend Runtime | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white) |
+| Express | Backend Framework | ![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white) |
+| MongoDB | Database | ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white) |
+| Socket.io | Real-time Communication | ![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=flat&logo=socket.io&logoColor=white) |
+| JWT | Authentication | ![JWT](https://img.shields.io/badge/JWT-000000?style=flat&logo=json-web-tokens&logoColor=white) |
 
 ---
 
